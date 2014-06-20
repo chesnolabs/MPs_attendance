@@ -5,7 +5,7 @@ require 'mechanize'
 require 'date'
 
 
-kodsall = *(2..482)
+kodsall = *(2..486)
 kods = kodsall.delete_if { |ko| [397, 230, 287, 220, 231, 228, 309, 265, 222, 313, 332, 418, 327, 312, 132, 440, 422, 356, 310, 341, 336, 435, 84, 427, 292, 462, 466].include? ko }
 bdate = if ARGV[0] 
    ARGV[0]
