@@ -29,8 +29,9 @@ kods.each do |kod|
     page.search('tr')[3..-1].each do |tr|
       a = tr.text.split(/\n/)
       arr[1] = a[2]
-      arr[2] = a[5]
-      arr[3] = a[8]
+      arr[2] = a[3]
+      arr[3] = a[5]
+      arr[4] = a[8]
         CSV.open("register.csv", "ab", {:col_sep => "\t"}) do |data|
         data << arr
       end
