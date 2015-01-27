@@ -37,13 +37,15 @@ kods.each do |kod|
   arr[0] = page.search('tr')[1].text.split(/\n/)[1]
   if page.search('tr')[3..-1]!=nil
     page.search('tr')[3..-1].each do |tr|
-      a = tr.text.split(/\n/)
-      arr[1] = a[2].split("  ")[0]
-      arr[2] = a[2].split("  ")[1]
-      arr[3] = a[4]
-      arr[4] = a.last
-        CSV.open("#{bdate}_#{edate}_el.csv", "ab", {:col_sep => "\t"}) do |data|
-        data << arr
+      unless tr.children.count ==1
+        a = tr.text.split(/\n/) 
+        arr[1] = a[2].split("  ")[0]
+        arr[2] = a[2].split("  ")[1]
+        arr[3] = a[4]
+        arr[4] = a.last
+          CSV.open("#{bdate}_#{edate}_el.csv", "ab", {:col_sep => "\t"}) do |data|
+          data << arr
+        end
       end
     end 
   end
